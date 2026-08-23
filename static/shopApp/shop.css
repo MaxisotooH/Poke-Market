@@ -1,0 +1,147 @@
+/* shop.css: estilos de la tienda "POKE MARKET", usados por shop_base.html,
+   home.html y categoria.html. Se carga después de Bootstrap. */
+
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Luckiest+Guy&display=swap');
+
+/* Cabecera celeste con el logo redondo "dj" y el título de la tienda. */
+.shop-header {
+    background-color: #cdeffc;  /* Celeste claro de fondo. */
+    padding: 20px 30px;         /* Espacio interno arriba/abajo y a los lados. */
+    display: flex;              /* Coloca logo y título en fila, uno al lado del otro. */
+    align-items: center;        /* Centra verticalmente logo y título. */
+    gap: 14px;                  /* Separación entre el logo y el título. */
+}
+
+/* Círculo verde oscuro con las letras "dj" dentro del header. */
+.shop-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;         /* 50% convierte el cuadrado en círculo. */
+    background-color: #0c4a34;  /* Verde oscuro (identidad de Django). */
+    color: #ffffff;             /* Texto "dj" en blanco. */
+    display: flex;              /* Flex para centrar el texto dentro del círculo. */
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Título "POKE MARKET" dentro del header. */
+.shop-header h1 {
+    margin: 0;                  /* Quita el margen por defecto del <h1>. */
+    color: #0c4a34;             /* Mismo verde oscuro que el logo, para consistencia. */
+    font-family: 'Bangers', cursive;
+    font-size: 3rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    -webkit-text-stroke: 2px #f7d117;
+    text-shadow:
+        2px 2px 0 #1d1d1d,
+        4px 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* Barra gris con el nombre de la categoría actual (solo en categoria.html). */
+.shop-subtitle {
+    background-color: #dcdcdc;
+    padding: 14px 30px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Contenedor de los botones de categoría en el home de la tienda. */
+.shop-categories {
+    padding: 20px 30px;
+    display: flex;   /* Botones en fila. */
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;        /* Separación entre botones. */
+}
+
+/* Botones principales de categorías, con estética inspirada en una Poké Ball. */
+.shop-category-btn {
+    border: 2px solid #111;
+    border-radius: 999px;
+    padding: 12px 22px;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 1.05rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    -webkit-text-stroke: 0.7px #111;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.22);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+.shop-category-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 0 rgba(0, 0, 0, 0.28);
+    filter: brightness(1.04);
+}
+
+.shop-category-btn.pokeball-red {
+    background: linear-gradient(180deg, #d82929 0%, #9e1111 100%);
+    color: #fff;
+}
+
+.shop-category-btn.pokeball-black {
+    background: linear-gradient(180deg, #2f2f2f 0%, #050505 100%);
+    color: #fff;
+}
+
+.shop-category-btn.pokeball-red:hover,
+.shop-category-btn.pokeball-black:hover {
+    color: #fff;
+}
+
+/* Contenedor de las tarjetas de producto dentro de una categoría. */
+.shop-products {
+    padding: 20px 30px;
+    display: flex;
+    flex-wrap: wrap;  /* Si no caben en una fila, pasan a la siguiente. */
+    gap: 16px;
+}
+
+/* Tarjeta verde de cada producto individual. */
+.product-card {
+    background-color: #2e8b57;  /* Verde tipo "sea green". */
+    border-radius: 6px;
+    padding: 10px;
+    width: 140px;                /* Ancho fijo para que todas las tarjetas midan igual. */
+    text-align: center;
+    color: #ffffff;
+}
+
+/* Recuadro gris claro que simula la miniatura de producto (aún no hay fotos reales). */
+.product-placeholder {
+    background-color: #f2f2f2;
+    color: #999;
+    border-radius: 4px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;   /* Ícono arriba, texto "COMING SOON" abajo. */
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    margin-bottom: 8px;       /* Separa el placeholder del nombre del producto. */
+}
+
+/* Tamaño y color del ícono de cámara (svg) dentro del placeholder. */
+.product-placeholder svg {
+    width: 28px;
+    height: 28px;
+    fill: #bbb;
+}
+
+/* Nombre del producto, debajo del placeholder. */
+.product-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Contenedor del botón "VOLVER" al final de cada página de categoría. */
+.shop-back {
+    padding: 0 30px 30px;
+}

@@ -1,0 +1,20 @@
+<!-- home.html: página de inicio de la tienda (ruta /), renderizada por
+     la vista shopApp.views.home. Muestra un botón por cada categoría. -->
+
+{% extends "shopApp/shop_base.html" %}
+
+{% block title %}Poke Market{% endblock %}
+
+{% block content %}
+    <div class="shop-categories">
+       <!-- El bucle recorre pares (slug, data) ya preparados por la vista.
+           Así evitamos chocar con el método .items() del diccionario. -->
+       {% for slug, data in categorias %}
+            <!-- La etiqueta url genera /<slug>/ usando el
+                 name="shop_categoria" definido en shopApp/urls.py, pasándole
+                 "slug" como parámetro de la URL.
+                 data.color inyecta una clase personalizada de color. -->
+            <a href="{% url 'shop_categoria' slug %}" class="btn shop-category-btn {{ data.color }}">{{ data.titulo }}</a>
+        {% endfor %}
+    </div>
+{% endblock %}
