@@ -1,0 +1,24 @@
+<!-- login.html: formulario de inicio de sesión (ruta /usuarios/login/),
+     renderizado por la LoginView built-in de Django (ver usuarios/urls.py). -->
+
+{% extends "shopApp/shop_base.html" %}
+
+{% block title %}Iniciar sesión - POKE MARKET{% endblock %}
+
+{% block content %}
+    <div class="shop-subtitle">Iniciar sesión</div>
+
+    <div class="auth-form-wrap">
+        <form method="post" class="auth-form">
+            {% csrf_token %}
+            <!-- form aquí es un AuthenticationForm (username + password),
+                 provisto automáticamente por LoginView. -->
+            {{ form.as_p }}
+            <button type="submit" class="btn shop-back-btn">INICIAR SESIÓN</button>
+        </form>
+
+        <p class="auth-form-link">
+            ¿No tienes cuenta? <a href="{% url 'usuarios_registro' %}">Regístrate aquí</a>
+        </p>
+    </div>
+{% endblock %}

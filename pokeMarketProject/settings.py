@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'shopApp',
+    'usuarios',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,15 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Autenticación (app usuarios)
+# https://docs.djangoproject.com/en/5.2/topics/auth/default/
+
+# Vista a la que Django redirige si un usuario no autenticado intenta
+# entrar a una página protegida con @login_required (ej: el perfil).
+LOGIN_URL = 'usuarios_login'
+# A dónde redirigir después de un login exitoso.
+LOGIN_REDIRECT_URL = 'usuarios_perfil'
+# A dónde redirigir después de cerrar sesión.
+LOGOUT_REDIRECT_URL = 'shop_home'

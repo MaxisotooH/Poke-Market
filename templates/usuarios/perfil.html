@@ -1,0 +1,34 @@
+<!-- perfil.html: página de perfil del cliente autenticado (ruta
+     /usuarios/perfil/), protegida con @login_required en usuarios/views.py. -->
+
+{% extends "shopApp/shop_base.html" %}
+
+{% block title %}Mi perfil - POKE MARKET{% endblock %}
+
+{% block content %}
+    <div class="shop-subtitle">Mi perfil de entrenador</div>
+
+    <div class="profile-card">
+        <ul class="profile-list">
+            <!-- request.user está disponible en todos los templates gracias
+                 al context processor django.template.context_processors.auth
+                 (ver TEMPLATES en settings.py). -->
+            <li><strong>Usuario:</strong> {{ request.user.username }}</li>
+            <li><strong>Email:</strong> {{ request.user.email }}</li>
+            <!-- perfil es el objeto Perfil pasado desde la vista perfil(). -->
+            <li><strong>Apodo de entrenador:</strong> {{ perfil.apodo_entrenador|default:"—" }}</li>
+            <li><strong>Región favorita:</strong> {{ perfil.region_favorita|default:"—" }}</li>
+            <li><strong>Miembro desde:</strong> {{ request.user.date_joined|date:"d/m/Y" }}</li>
+        </ul>
+
+        <!-- LogoutView de Django exige POST (no un simple link) por seguridad. -->
+        <form method="post" action="{% url 'usuarios_logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn shop-back-btn">CERRAR SESIÓN</button>
+        </form>
+    </div>
+
+    <div class="shop-back">
+        <a href="{% url 'shop_home' %}" class="btn shop-back-btn">IR A LA TIENDA</a>
+    </div>
+{% endblock %}

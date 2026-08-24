@@ -10,12 +10,17 @@ from django.contrib import admin
 # include: delega un prefijo de URL a otro archivo urls.py (el de la app).
 from django.urls import include, path
 
-# Lista de rutas del proyecto. Como POKE MARKET es la única app,
-# se monta directamente en la raíz del sitio ('').
+# Lista de rutas del proyecto.
 urlpatterns = [
     # /admin/ -> panel de administración de Django.
     path('admin/', admin.site.urls),
+    # /usuarios/... -> registro, login, logout y perfil, definidas en
+    # usuarios/urls.py. DEBE ir antes que shopApp: shopApp monta una ruta
+    # catch-all de 2 segmentos ('<categoria>/<producto>/') en la raíz, y si
+    # esta línea fuera después, "usuarios/registro/" sería interpretado
+    # como categoria="usuarios", producto="registro" por la tienda.
+    path('usuarios/', include('usuarios.urls')),
     # '' -> todas las rutas de la tienda, definidas en shopApp/urls.py
-    # (home en '/', categorías en '/<nombre>/').
+    # (home en '/', categorías en '/<nombre>/', detalle en '/<cat>/<prod>/').
     path('', include('shopApp.urls')),
 ]

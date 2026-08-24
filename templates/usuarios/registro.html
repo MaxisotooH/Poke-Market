@@ -1,0 +1,27 @@
+<!-- registro.html: formulario de registro de un nuevo cliente
+     (ruta /usuarios/registro/). Crea un User de Django y su Perfil
+     asociado (apodo de entrenador, región favorita). -->
+
+{% extends "shopApp/shop_base.html" %}
+
+{% block title %}Crear cuenta - POKE MARKET{% endblock %}
+
+{% block content %}
+    <div class="shop-subtitle">Crear cuenta de entrenador</div>
+
+    <div class="auth-form-wrap">
+        <form method="post" class="auth-form">
+            <!-- csrf_token: token de seguridad obligatorio en todo POST de Django. -->
+            {% csrf_token %}
+            <!-- form.as_p renderiza cada campo del RegistroForm (username,
+                 email, apodo_entrenador, region_favorita, password1, password2)
+                 envuelto en un <p>, junto con sus errores de validación. -->
+            {{ form.as_p }}
+            <button type="submit" class="btn shop-back-btn">CREAR CUENTA</button>
+        </form>
+
+        <p class="auth-form-link">
+            ¿Ya tienes cuenta? <a href="{% url 'usuarios_login' %}">Inicia sesión aquí</a>
+        </p>
+    </div>
+{% endblock %}

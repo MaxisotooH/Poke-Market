@@ -15,10 +15,25 @@
         <link rel="stylesheet" href="{% static 'shopApp/shop.css' %}">
     </head>
     <body>
-        <!-- Cabecera fija de la tienda: círculo "dj" + título, igual en todas las páginas. -->
+        <!-- Cabecera fija de la tienda: logo + título, igual en todas las páginas. -->
         <div class="shop-header">
-            <img src="{% static 'shopApp/images/shop_logo.png' %}" class="shop-logo" alt="Logo">
-            <h1>POKE MARKET</h1>
+            <div class="shop-header-brand">
+                <img src="{% static 'shopApp/images/shop_logo.png' %}" class="shop-logo" alt="Logo">
+                <h1>POKE MARKET</h1>
+            </div>
+
+            <!-- request.user está disponible en todos los templates gracias
+                 al context processor django.contrib.auth.context_processors.auth
+                 (ver TEMPLATES en settings.py). is_authenticated distingue
+                 si hay o no una sesión activa. -->
+            <div class="shop-header-auth">
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'usuarios_perfil' %}" class="shop-header-link">{{ request.user.username }}</a>
+                {% else %}
+                    <a href="{% url 'usuarios_login' %}" class="shop-header-link">Iniciar sesión</a>
+                    <a href="{% url 'usuarios_registro' %}" class="shop-header-link">Registrarse</a>
+                {% endif %}
+            </div>
         </div>
 
         <!-- Cada página hija (home.html, categoria.html) inserta aquí su contenido. -->
