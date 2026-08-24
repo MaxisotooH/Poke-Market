@@ -6,20 +6,23 @@
 body {
     margin: 0;
     background:
-        radial-gradient(circle at top, rgba(255, 255, 255, 0.9) 0, rgba(255, 255, 255, 0.75) 24%, rgba(255, 255, 255, 0.6) 45%, rgba(255, 255, 255, 0.98) 100%),
-        linear-gradient(180deg, #eef8ff 0%, #ffffff 100%);
+        radial-gradient(circle at 20px 20px, rgba(255, 255, 255, 0.12) 0 18px, transparent 19px),
+        radial-gradient(circle at 70px 70px, rgba(17, 17, 17, 0.05) 0 10px, transparent 11px),
+        linear-gradient(180deg, #f6efd9 0%, #efe0bf 100%);
+    background-size: 90px 90px, 110px 110px, auto;
+    background-attachment: fixed;
     color: #111;
 }
 
-/* Cabecera celeste con el logo redondo "dj" y el título de la tienda. */
+/* Cabecera con estética Poké Ball. */
 .shop-header {
-    background: linear-gradient(180deg, #d7effd 0%, #c8e6fa 100%);
+    background: linear-gradient(180deg, #d62828 0%, #9e1111 100%);
     padding: 18px 30px;
     display: flex;              /* Coloca logo y título en fila, uno al lado del otro. */
     align-items: center;        /* Centra verticalmente logo y título. */
     gap: 14px;                  /* Separación entre el logo y el título. */
-    border-bottom: 3px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 3px 18px rgba(0, 0, 0, 0.08);
+    border-bottom: 4px solid #111;
+    box-shadow: 0 8px 0 rgba(0, 0, 0, 0.18);
 }
 
 /* Círculo verde oscuro con las letras "dj" dentro del header. */
@@ -27,7 +30,7 @@ body {
     width: 48px;
     height: 48px;
     border-radius: 50%;         /* 50% convierte el cuadrado en círculo. */
-    background-color: #0c4a34;  /* Verde oscuro (identidad de Django). */
+    background-color: #111111;
     color: #ffffff;             /* Texto "dj" en blanco. */
     display: flex;              /* Flex para centrar el texto dentro del círculo. */
     align-items: center;
@@ -39,21 +42,21 @@ body {
 /* Título "POKE MARKET" dentro del header. */
 .shop-header h1 {
     margin: 0;                  /* Quita el margen por defecto del <h1>. */
-    color: #0c4a34;             /* Mismo verde oscuro que el logo, para consistencia. */
+    color: #f7d117;
     font-family: 'Bangers', cursive;
     font-size: 3rem;
     font-weight: 400;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    -webkit-text-stroke: 2px #f7d117;
+    -webkit-text-stroke: 2px #111;
     text-shadow:
-        2px 2px 0 #1d1d1d,
-        4px 4px 0 rgba(0, 0, 0, 0.12);
+        2px 2px 0 #111,
+        4px 4px 0 rgba(0, 0, 0, 0.18);
 }
 
 /* Barra gris con el nombre de la categoría actual (solo en categoria.html). */
 .shop-subtitle {
-    background: linear-gradient(180deg, #1f1f1f 0%, #3a3a3a 100%);
+    background: linear-gradient(180deg, #111111 0%, #2a2a2a 100%);
     padding: 14px 30px;
     font-size: 1.1rem;
     color: #fff;
@@ -67,33 +70,37 @@ body {
 
 /* Contenedor de los botones de categoría en el home de la tienda. */
 .shop-categories {
-    padding: 24px 30px 8px;
+    padding: 28px 30px 10px;
     display: flex;   /* Botones en fila. */
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 12px;        /* Separación entre botones. */
+    gap: 14px;        /* Separación entre botones. */
 }
 
 /* Botones principales de categorías, con estética inspirada en una Poké Ball. */
 .shop-category-btn {
     border: 2px solid #111;
     border-radius: 999px;
-    padding: 12px 22px;
+    padding: 13px 26px;
     font-family: 'Luckiest Guy', cursive;
-    font-size: 1.05rem;
+    font-size: 1.08rem;
     font-weight: 400;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     -webkit-text-stroke: 0.7px #111;
     text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
-    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.22);
+    box-shadow:
+        0 7px 0 rgba(0, 0, 0, 0.28),
+        0 12px 18px rgba(0, 0, 0, 0.12);
     transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
 }
 
 .shop-category-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 8px 0 rgba(0, 0, 0, 0.28);
+    transform: translateY(-3px);
+    box-shadow:
+        0 10px 0 rgba(0, 0, 0, 0.28),
+        0 16px 22px rgba(0, 0, 0, 0.16);
     filter: brightness(1.04);
 }
 
@@ -114,7 +121,7 @@ body {
 
 /* Contenedor de las tarjetas de producto dentro de una categoría. */
 .shop-products {
-    padding: 24px 30px 12px;
+    padding: 28px 30px 12px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 18px;
@@ -124,19 +131,41 @@ body {
 
 /* Tarjeta verde de cada producto individual. */
 .product-card {
-    background: linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(249, 240, 214, 0.96) 100%),
+        linear-gradient(135deg, rgba(214, 40, 40, 0.14) 0%, rgba(17, 17, 17, 0.08) 100%);
     border: 2px solid #111;
-    border-radius: 16px;
+    border-radius: 18px;
     padding: 12px 12px 14px;
     width: 100%;
     text-align: center;
     color: #111;
-    box-shadow: 0 8px 0 rgba(0, 0, 0, 0.18);
+    box-shadow:
+        0 10px 0 rgba(0, 0, 0, 0.18),
+        0 18px 28px rgba(0, 0, 0, 0.12);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     min-height: 240px;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    pointer-events: none;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 14px 0 rgba(0, 0, 0, 0.18),
+        0 24px 34px rgba(0, 0, 0, 0.16);
 }
 
 /* Imagen real del producto. */
@@ -145,7 +174,7 @@ body {
     height: 150px;
     object-fit: contain;
     border-radius: 12px;
-    background: linear-gradient(180deg, #f8f8f8 0%, #ececec 100%);
+    background: linear-gradient(180deg, #fff 0%, #f3ead3 100%);
     margin-bottom: 10px;
     border: 1px solid rgba(0, 0, 0, 0.12);
     padding: 10px;
@@ -153,11 +182,18 @@ body {
 
 /* Nombre del producto, debajo del placeholder. */
 .product-name {
-    font-size: 0.95rem;
+    font-size: 0.98rem;
     font-weight: 700;
     font-family: 'Luckiest Guy', cursive;
     letter-spacing: 0.03em;
     line-height: 1.15;
+    background: linear-gradient(180deg, #111 0%, #2d2d2d 100%);
+    color: #fff;
+    width: 100%;
+    border-radius: 999px;
+    padding: 8px 10px 7px;
+    border: 2px solid #111;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.18);
 }
 
 /* Contenedor del botón "VOLVER" al final de cada página de categoría. */
@@ -165,4 +201,34 @@ body {
     padding: 8px 30px 30px;
     max-width: 1240px;
     margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .shop-header {
+        padding: 14px 18px;
+    }
+
+    .shop-header h1 {
+        font-size: 2.3rem;
+    }
+
+    .shop-categories,
+    .shop-products,
+    .shop-back {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .shop-products {
+        grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+        gap: 14px;
+    }
+
+    .product-card {
+        min-height: 220px;
+    }
+
+    .product-image {
+        height: 130px;
+    }
 }
