@@ -38,6 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # crispy_forms / crispy_bootstrap5: package externo (instalado vía pip,
+    # ver requirements.txt) que renderiza formularios de Django con las
+    # clases de Bootstrap automáticamente, en vez de HTML plano.
+    'crispy_forms',
+    'crispy_bootstrap5',
     'shopApp',
     'usuarios',
 ]
@@ -137,3 +142,9 @@ LOGIN_URL = 'usuarios_login'
 LOGIN_REDIRECT_URL = 'usuarios_perfil'
 # A dónde redirigir después de cerrar sesión.
 LOGOUT_REDIRECT_URL = 'shop_home'
+
+
+# django-crispy-forms
+# https://django-crispy-forms.readthedocs.io/
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"

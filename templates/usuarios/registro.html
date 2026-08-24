@@ -3,6 +3,9 @@
      asociado (apodo de entrenador, región favorita). -->
 
 {% extends "shopApp/shop_base.html" %}
+<!-- crispy_forms_tags: habilita el filtro |crispy, provisto por el
+     package externo django-crispy-forms (ver requirements.txt). -->
+{% load crispy_forms_tags %}
 
 {% block title %}Crear cuenta - POKE MARKET{% endblock %}
 
@@ -13,10 +16,11 @@
         <form method="post" class="auth-form">
             <!-- csrf_token: token de seguridad obligatorio en todo POST de Django. -->
             {% csrf_token %}
-            <!-- form.as_p renderiza cada campo del RegistroForm (username,
+            <!-- form|crispy renderiza cada campo del RegistroForm (username,
                  email, apodo_entrenador, region_favorita, password1, password2)
-                 envuelto en un <p>, junto con sus errores de validación. -->
-            {{ form.as_p }}
+                 con las clases de Bootstrap 5 (form-control, mb-3, etc),
+                 en vez del HTML plano de form.as_p. -->
+            {{ form|crispy }}
             <button type="submit" class="btn shop-back-btn">CREAR CUENTA</button>
         </form>
 

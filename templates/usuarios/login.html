@@ -2,6 +2,7 @@
      renderizado por la LoginView built-in de Django (ver usuarios/urls.py). -->
 
 {% extends "shopApp/shop_base.html" %}
+{% load crispy_forms_tags %}
 
 {% block title %}Iniciar sesión - POKE MARKET{% endblock %}
 
@@ -12,8 +13,9 @@
         <form method="post" class="auth-form">
             {% csrf_token %}
             <!-- form aquí es un AuthenticationForm (username + password),
-                 provisto automáticamente por LoginView. -->
-            {{ form.as_p }}
+                 provisto automáticamente por LoginView. Se renderiza con
+                 django-crispy-forms igual que en registro.html. -->
+            {{ form|crispy }}
             <button type="submit" class="btn shop-back-btn">INICIAR SESIÓN</button>
         </form>
 

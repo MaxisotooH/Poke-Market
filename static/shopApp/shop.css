@@ -428,10 +428,12 @@ body {
         0 18px 28px rgba(0, 0, 0, 0.12);
 }
 
-/* Django renderiza cada campo de RegistroForm/AuthenticationForm dentro
-   de un <p> cuando se usa {{ form.as_p }}. */
-.auth-form p {
-    margin: 0 0 14px;
+/* django-crispy-forms (pack bootstrap5) envuelve cada campo en un
+   <div class="mb-3">, con <label class="form-label"> e
+   <input class="form-control">. Estas reglas re-temáticas ese markup
+   con la estética Poké Ball en vez de dejar el Bootstrap plano. */
+.auth-form .mb-3 {
+    margin-bottom: 14px !important;
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -450,16 +452,18 @@ body {
     font-size: 0.95rem;
 }
 
-.auth-form .helptext {
+.auth-form .form-text {
     font-size: 0.78rem;
     color: #555;
 }
 
+.auth-form .invalid-feedback,
 .auth-form ul.errorlist {
+    display: block;
     color: #9e1111;
     font-size: 0.82rem;
     margin: 2px 0 0;
-    padding-left: 18px;
+    padding-left: 0;
 }
 
 .auth-form button {
