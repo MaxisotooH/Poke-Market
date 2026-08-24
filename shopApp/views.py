@@ -26,15 +26,15 @@ CATEGORIAS = {
             {"nombre": "Poción", "imagen": "images/item4.png"},
             {"nombre": "Superpoción", "imagen": "images/item5.png"},
             {"nombre": "Hiperpoción", "imagen": "images/item6.png"},
+            {"nombre": "Poción Mágica", "imagen": "images/item7.png"},
         ],
     },
     "revivir": {
         "titulo": "Revivir",
         "color": "pokeball-red",       # Rojo estilo Poké Ball.
         "productos": [
-            {"nombre": "Revivir", "imagen": "images/item7.png"},
-            {"nombre": "Revivir Máximo", "imagen": "images/item8.png"},
-            {"nombre": "Revivir Total", "imagen": "images/item9.png"},
+            {"nombre": "Revivir", "imagen": "images/item8.png"},
+            {"nombre": "Revivir Máximo", "imagen": "images/item9.png"},
         ],
     },
     "bayas": {
@@ -50,20 +50,22 @@ CATEGORIAS = {
         "titulo": "Monedas",
         "color": "pokeball-red",       # Rojo estilo Poké Ball.
         "productos": [
-            {"nombre": "Moneda Pokémon GO", "imagen": "shopApp/images/monedas/coin_generic.png"},
-            {"nombre": "Moneda Amuleto", "imagen": "shopApp/images/monedas/stack_of_gold_coins.jpg"},
-            {"nombre": "Moneda Dorada", "imagen": "shopApp/images/monedas/three_coins.png"},
-            {"nombre": "Moneda Liga", "imagen": "shopApp/images/monedas/coin_generic.png"},
+            {"nombre": "Moneda Pokémon GO", "imagen": "images/item14.png"},
+            {"nombre": "Moneda X4", "imagen": "images/item17.png"},
+            {"nombre": "Moneda x10", "imagen": "images/item19.png"},
+            {"nombre": "Pack S Monedas", "imagen": "images/item18.png"},
+            {"nombre": "Pack M Monedas", "imagen": "images/item16.png"},
+            {"nombre": "Pack L Monedas", "imagen": "images/item15.png"},
         ],
     },
     "huevos_suerte": {
         "titulo": "Huevos suerte",
         "color": "pokeball-black",     # Negro estilo Poké Ball.
         "productos": [
-            {"nombre": "Huevo Suerte", "imagen": "shopApp/images/huevos_suerte/lucky-egg.png"},
-            {"nombre": "Huevo Suerte XL", "imagen": "shopApp/images/huevos_suerte/egg_bioart_2.png"},
-            {"nombre": "Huevo Suerte Ultra", "imagen": "shopApp/images/huevos_suerte/lucky-egg.png"},
-            {"nombre": "Huevo Suerte Premium", "imagen": "shopApp/images/huevos_suerte/egg_bioart_2.png"},
+            {"nombre": "Huevo Suerte", "imagen": "images/item23.png"},
+            {"nombre": "Huevo Suerte Pack M", "imagen": "images/item21.png"},
+            {"nombre": "Huevo Suerte Pack L", "imagen": "images/item22.png"},
+            
         ],
     },
     "pokeballs": {
