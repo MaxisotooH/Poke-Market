@@ -106,39 +106,33 @@
 
 /* Tarjeta verde de cada producto individual. */
 .product-card {
-    background-color: #2e8b57;  /* Verde tipo "sea green". */
-    border-radius: 6px;
+    background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
+    border: 2px solid #111;
+    border-radius: 14px;
     padding: 10px;
-    width: 140px;                /* Ancho fijo para que todas las tarjetas midan igual. */
+    width: 160px;                /* Ancho fijo para que todas las tarjetas midan igual. */
     text-align: center;
-    color: #ffffff;
+    color: #111;
+    box-shadow: 0 8px 0 rgba(0, 0, 0, 0.18);
 }
 
-/* Recuadro gris claro que simula la miniatura de producto (aún no hay fotos reales). */
-.product-placeholder {
-    background-color: #f2f2f2;
-    color: #999;
-    border-radius: 4px;
-    height: 80px;
-    display: flex;
-    flex-direction: column;   /* Ícono arriba, texto "COMING SOON" abajo. */
-    align-items: center;
-    justify-content: center;
-    font-size: 0.65rem;
-    margin-bottom: 8px;       /* Separa el placeholder del nombre del producto. */
-}
-
-/* Tamaño y color del ícono de cámara (svg) dentro del placeholder. */
-.product-placeholder svg {
-    width: 28px;
-    height: 28px;
-    fill: #bbb;
+/* Imagen real del producto. */
+.product-image {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 10px;
+    background: #f2f2f2;
+    margin-bottom: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 /* Nombre del producto, debajo del placeholder. */
 .product-name {
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 700;
+    font-family: 'Luckiest Guy', cursive;
+    letter-spacing: 0.03em;
 }
 
 /* Contenedor del botón "VOLVER" al final de cada página de categoría. */

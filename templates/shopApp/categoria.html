@@ -3,6 +3,7 @@
      de esa categoría y ofrece un botón para volver al home de la tienda. -->
 
 {% extends "shopApp/shop_base.html" %}
+{% load static %}
 
 <!-- La variable titulo viene del contexto que arma la vista categoria()
      (ej: "Electronica", "Juguetes", "Ropa"). -->
@@ -13,18 +14,12 @@
     <div class="shop-subtitle">{{ titulo }}</div>
 
     <div class="shop-products">
-        <!-- Recorre la lista "productos" (lista de strings) definida en
-             CATEGORIAS[nombre]["productos"] dentro de shopApp/views.py. -->
+            <!-- Recorre la lista "productos" definida en
+                 CATEGORIAS[nombre]["productos"] dentro de shopApp/views.py. -->
         {% for producto in productos %}
             <div class="product-card">
-                <!-- Placeholder visual: ícono de cámara + texto "COMING SOON",
-                     ya que todavía no hay imágenes reales de productos. -->
-                <div class="product-placeholder">
-                    <svg viewBox="0 0 24 24"><path d="M4 7h3l2-2h6l2 2h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1zm8 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg>
-                    COMING SOON
-                </div>
-                <!-- La variable producto: nombre del producto en la iteración actual del for. -->
-                <div class="product-name">{{ producto }}</div>
+                    <img class="product-image" src="{% static producto.imagen %}" alt="{{ producto.nombre }}">
+                    <div class="product-name">{{ producto.nombre }}</div>
             </div>
         {% endfor %}
     </div>

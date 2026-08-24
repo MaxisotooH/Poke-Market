@@ -13,37 +13,65 @@ CATEGORIAS = {
     "inciensos": {
         "titulo": "Inciensos",
         "color": "pokeball-red",       # Rojo estilo Poké Ball.
-        "productos": ["Incienso Suerte", "Incienso Limpio", "Incienso Fulgor"],
+        "productos": [
+            {"nombre": "Incienso Suerte", "imagen": "images/item1.png"},
+            {"nombre": "Incienso Limpio", "imagen": "images/item2.png"},
+            {"nombre": "Incienso Fulgor", "imagen": "images/item3.png"},
+        ],
     },
     "pociones": {
         "titulo": "Pociones",
         "color": "pokeball-black",     # Negro estilo Poké Ball.
-        "productos": ["Poción", "Superpoción", "Hiperpoción"],
+        "productos": [
+            {"nombre": "Poción", "imagen": "images/item4.png"},
+            {"nombre": "Superpoción", "imagen": "images/item5.png"},
+            {"nombre": "Hiperpoción", "imagen": "images/item6.png"},
+        ],
     },
     "revivir": {
         "titulo": "Revivir",
         "color": "pokeball-red",       # Rojo estilo Poké Ball.
-        "productos": ["Revivir", "Revivir Máximo", "Revivir Total"],
+        "productos": [
+            {"nombre": "Revivir", "imagen": "images/item7.png"},
+            {"nombre": "Revivir Máximo", "imagen": "images/item8.png"},
+            {"nombre": "Revivir Total", "imagen": "images/item9.png"},
+        ],
     },
     "bayas": {
         "titulo": "Bayas",
         "color": "pokeball-black",     # Negro estilo Poké Ball.
-        "productos": ["Baya Aranja", "Baya Zidra", "Baya Meluce"],
+        "productos": [
+            {"nombre": "Baya Aranja", "imagen": "images/item10.png"},
+            {"nombre": "Baya Zidra", "imagen": "images/item11.png"},
+            {"nombre": "Baya Meluce", "imagen": "images/item12.png"},
+        ],
     },
     "monedas": {
         "titulo": "Monedas",
         "color": "pokeball-red",       # Rojo estilo Poké Ball.
-        "productos": ["Moneda Amuleto", "Moneda Rápida", "Monedas de Liga"],
+        "productos": [
+            {"nombre": "Moneda Amuleto", "imagen": "images/item13.png"},
+            {"nombre": "Moneda Rápida", "imagen": "images/item14.png"},
+            {"nombre": "Monedas de Liga", "imagen": "images/item15.png"},
+        ],
     },
     "huevos_suerte": {
         "titulo": "Huevos suerte",
         "color": "pokeball-black",     # Negro estilo Poké Ball.
-        "productos": ["Huevo Suerte", "Huevo Suerte XL", "Huevo Suerte Premium"],
+        "productos": [
+            {"nombre": "Huevo Suerte", "imagen": "images/item16.png"},
+            {"nombre": "Huevo Suerte XL", "imagen": "images/item17.png"},
+            {"nombre": "Huevo Suerte Premium", "imagen": "images/item18.png"},
+        ],
     },
     "pokeballs": {
         "titulo": "Pokeballs",
         "color": "pokeball-red",       # Rojo estilo Poké Ball.
-        "productos": ["Poké Ball", "Super Ball", "Ultra Ball"],
+        "productos": [
+            {"nombre": "Poké Ball", "imagen": "images/item19.png"},
+            {"nombre": "Super Ball", "imagen": "images/item20.png"},
+            {"nombre": "Ultra Ball", "imagen": "images/item21.png"},
+        ],
     },
 }
 
