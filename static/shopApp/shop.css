@@ -261,6 +261,48 @@ body {
     margin: 0 auto;
 }
 
+.shop-back-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 160px;
+    border: 3px solid #111;
+    border-radius: 18px;
+    padding: 12px 26px 11px;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(180deg, #2b2b2b 0%, #111111 100%);
+    box-shadow:
+        0 7px 0 rgba(0, 0, 0, 0.30),
+        0 14px 20px rgba(0, 0, 0, 0.14);
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+.shop-back-btn:hover {
+    transform: translateY(-3px);
+    color: #fff;
+    box-shadow:
+        0 10px 0 rgba(0, 0, 0, 0.30),
+        0 18px 24px rgba(0, 0, 0, 0.16);
+    filter: brightness(1.04);
+}
+
+.shop-back-btn:focus {
+    color: #fff;
+}
+
+.shop-products--monedas + .shop-back .shop-back-btn {
+    background: linear-gradient(180deg, #8d6a00 0%, #5f4700 100%);
+}
+
+.shop-products--huevos_suerte + .shop-back .shop-back-btn {
+    background: linear-gradient(180deg, #5b3f8a 0%, #3d2c5f 100%);
+}
+
 @media (max-width: 768px) {
     .shop-header {
         padding: 14px 18px;

@@ -50,27 +50,42 @@ CATEGORIAS = {
         "titulo": "Monedas",
         "color": "pokeball-red",       # Rojo estilo Poké Ball.
         "productos": [
-            {"nombre": "Moneda Amuleto", "imagen": "images/item13.png"},
-            {"nombre": "Moneda Rápida", "imagen": "images/item14.png"},
-            {"nombre": "Monedas de Liga", "imagen": "images/item15.png"},
+            {"nombre": "Moneda Pokémon GO", "imagen": "shopApp/images/monedas/coin_generic.png"},
+            {"nombre": "Moneda Amuleto", "imagen": "shopApp/images/monedas/stack_of_gold_coins.jpg"},
+            {"nombre": "Moneda Dorada", "imagen": "shopApp/images/monedas/three_coins.png"},
+            {"nombre": "Moneda Liga", "imagen": "shopApp/images/monedas/coin_generic.png"},
         ],
     },
     "huevos_suerte": {
         "titulo": "Huevos suerte",
         "color": "pokeball-black",     # Negro estilo Poké Ball.
         "productos": [
-            {"nombre": "Huevo Suerte", "imagen": "images/item16.png"},
-            {"nombre": "Huevo Suerte XL", "imagen": "images/item17.png"},
-            {"nombre": "Huevo Suerte Premium", "imagen": "images/item18.png"},
+            {"nombre": "Huevo Suerte", "imagen": "shopApp/images/huevos_suerte/lucky-egg.png"},
+            {"nombre": "Huevo Suerte XL", "imagen": "shopApp/images/huevos_suerte/egg_bioart_2.png"},
+            {"nombre": "Huevo Suerte Ultra", "imagen": "shopApp/images/huevos_suerte/lucky-egg.png"},
+            {"nombre": "Huevo Suerte Premium", "imagen": "shopApp/images/huevos_suerte/egg_bioart_2.png"},
         ],
     },
     "pokeballs": {
         "titulo": "Pokeballs",
         "color": "pokeball-red",       # Rojo estilo Poké Ball.
         "productos": [
-            {"nombre": "Poké Ball", "imagen": "images/item19.png"},
-            {"nombre": "Super Ball", "imagen": "images/item20.png"},
-            {"nombre": "Ultra Ball", "imagen": "images/item21.png"},
+            {"nombre": "Poké Ball", "imagen": "shopApp/images/pokeballs/poke-ball.png"},
+            {"nombre": "Super Ball", "imagen": "shopApp/images/pokeballs/great-ball.png"},
+            {"nombre": "Ultra Ball", "imagen": "shopApp/images/pokeballs/ultra-ball.png"},
+            {"nombre": "Master Ball", "imagen": "shopApp/images/pokeballs/master-ball.png"},
+            {"nombre": "Safari Ball", "imagen": "shopApp/images/pokeballs/safari-ball.png"},
+            {"nombre": "Net Ball", "imagen": "shopApp/images/pokeballs/net-ball.png"},
+            {"nombre": "Nest Ball", "imagen": "shopApp/images/pokeballs/nest-ball.png"},
+            {"nombre": "Repeat Ball", "imagen": "shopApp/images/pokeballs/repeat-ball.png"},
+            {"nombre": "Timer Ball", "imagen": "shopApp/images/pokeballs/timer-ball.png"},
+            {"nombre": "Luxury Ball", "imagen": "shopApp/images/pokeballs/luxury-ball.png"},
+            {"nombre": "Premier Ball", "imagen": "shopApp/images/pokeballs/premier-ball.png"},
+            {"nombre": "Dive Ball", "imagen": "shopApp/images/pokeballs/dive-ball.png"},
+            {"nombre": "Dusk Ball", "imagen": "shopApp/images/pokeballs/dusk-ball.png"},
+            {"nombre": "Heal Ball", "imagen": "shopApp/images/pokeballs/heal-ball.png"},
+            {"nombre": "Quick Ball", "imagen": "shopApp/images/pokeballs/quick-ball.png"},
+            {"nombre": "Cherish Ball", "imagen": "shopApp/images/pokeballs/cherish-ball.png"},
         ],
     },
 }

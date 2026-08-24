@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" rx="28" fill="#1a1a1a"/>
+  <circle cx="200" cy="145" r="82" fill="#d6af36" stroke="#fff0b5" stroke-width="10"/>
+  <circle cx="200" cy="145" r="54" fill="#b07d12" stroke="#7a550a" stroke-width="8"/>
+  <text x="200" y="158" font-size="30" font-family="Arial, sans-serif" font-weight="700" fill="#ffffff" text-anchor="middle">AMULETO</text>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" rx="28" fill="#141414"/>
+  <ellipse cx="200" cy="150" rx="76" ry="94" fill="#ffef95" stroke="#ffffff" stroke-width="10"/>
+  <path d="M124 150c25-24 54-36 76-36s51 12 76 36" fill="none" stroke="#f8d24a" stroke-width="10"/>
+  <text x="200" y="270" font-size="24" font-family="Arial, sans-serif" font-weight="700" fill="#ffffff" text-anchor="middle">HUEVO SUERTE</text>
+</svg>
