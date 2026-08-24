@@ -6,9 +6,10 @@
 body {
     margin: 0;
     background:
-        radial-gradient(circle at 20px 20px, rgba(255, 255, 255, 0.12) 0 18px, transparent 19px),
-        radial-gradient(circle at 70px 70px, rgba(17, 17, 17, 0.05) 0 10px, transparent 11px),
-        linear-gradient(180deg, #f6efd9 0%, #efe0bf 100%);
+        radial-gradient(circle at 20px 20px, rgba(255, 255, 255, 0.08) 0 18px, transparent 19px),
+        radial-gradient(circle at 70px 70px, rgba(17, 17, 17, 0.07) 0 10px, transparent 11px),
+        radial-gradient(circle at 50% 0%, rgba(214, 40, 40, 0.08) 0, transparent 40%),
+        linear-gradient(180deg, #e6d6aa 0%, #d9c089 100%);
     background-size: 90px 90px, 110px 110px, auto;
     background-attachment: fixed;
     color: #111;
@@ -70,37 +71,39 @@ body {
 
 /* Contenedor de los botones de categoría en el home de la tienda. */
 .shop-categories {
-    padding: 28px 30px 10px;
+    padding: 26px 30px 10px;
     display: flex;   /* Botones en fila. */
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 14px;        /* Separación entre botones. */
+    gap: 12px 16px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Botones principales de categorías, con estética inspirada en una Poké Ball. */
 .shop-category-btn {
-    border: 2px solid #111;
-    border-radius: 999px;
-    padding: 13px 26px;
+    border: 3px solid #111;
+    border-radius: 20px;
+    padding: 14px 28px 13px;
     font-family: 'Luckiest Guy', cursive;
-    font-size: 1.08rem;
+    font-size: 1.1rem;
     font-weight: 400;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    -webkit-text-stroke: 0.7px #111;
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
+    -webkit-text-stroke: 0.9px #111;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.45);
     box-shadow:
-        0 7px 0 rgba(0, 0, 0, 0.28),
-        0 12px 18px rgba(0, 0, 0, 0.12);
+        0 8px 0 rgba(0, 0, 0, 0.32),
+        0 14px 20px rgba(0, 0, 0, 0.14);
     transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
 }
 
 .shop-category-btn:hover {
-    transform: translateY(-3px);
+    transform: translateY(-4px);
     box-shadow:
-        0 10px 0 rgba(0, 0, 0, 0.28),
-        0 16px 22px rgba(0, 0, 0, 0.16);
+        0 11px 0 rgba(0, 0, 0, 0.30),
+        0 18px 24px rgba(0, 0, 0, 0.18);
     filter: brightness(1.04);
 }
 
@@ -132,7 +135,7 @@ body {
 /* Tarjeta verde de cada producto individual. */
 .product-card {
     background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(249, 240, 214, 0.96) 100%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.97) 0%, rgba(249, 240, 214, 0.97) 100%),
         linear-gradient(135deg, rgba(214, 40, 40, 0.14) 0%, rgba(17, 17, 17, 0.08) 100%);
     border: 2px solid #111;
     border-radius: 18px;
@@ -159,6 +162,61 @@ body {
     border-radius: 14px;
     border: 1px solid rgba(255, 255, 255, 0.65);
     pointer-events: none;
+}
+
+.product-card:nth-child(4n+1) {
+    box-shadow:
+        0 10px 0 rgba(0, 0, 0, 0.18),
+        0 18px 28px rgba(0, 0, 0, 0.12),
+        inset 0 0 0 1px rgba(214, 40, 40, 0.12);
+}
+
+.product-card:nth-child(4n+2) {
+    box-shadow:
+        0 10px 0 rgba(0, 0, 0, 0.18),
+        0 18px 28px rgba(0, 0, 0, 0.12),
+        inset 0 0 0 1px rgba(17, 17, 17, 0.10);
+}
+
+.product-card:nth-child(4n+3) {
+    box-shadow:
+        0 10px 0 rgba(0, 0, 0, 0.18),
+        0 18px 28px rgba(0, 0, 0, 0.12),
+        inset 0 0 0 1px rgba(247, 209, 23, 0.16);
+}
+
+.product-card:nth-child(4n) {
+    box-shadow:
+        0 10px 0 rgba(0, 0, 0, 0.18),
+        0 18px 28px rgba(0, 0, 0, 0.12),
+        inset 0 0 0 1px rgba(30, 144, 255, 0.12);
+}
+
+/* Tratamientos especiales para categorías que pediste distinguir visualmente. */
+.shop-products--monedas .product-card {
+    background:
+        radial-gradient(circle at top, rgba(255, 236, 153, 0.46) 0, transparent 34%),
+        linear-gradient(180deg, rgba(255, 250, 228, 0.98) 0%, rgba(246, 223, 160, 0.98) 100%);
+}
+
+.shop-products--huevos_suerte .product-card {
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.50) 0, transparent 34%),
+        linear-gradient(180deg, rgba(247, 241, 255, 0.98) 0%, rgba(226, 214, 252, 0.98) 100%);
+}
+
+.shop-products--huevos_suerte .product-name {
+    background: linear-gradient(180deg, #5b3f8a 0%, #3d2c5f 100%);
+}
+
+.shop-products--monedas .product-name {
+    background: linear-gradient(180deg, #8d6a00 0%, #5f4700 100%);
+}
+
+.shop-products--pokeballs .product-card {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.97) 0%, rgba(249, 240, 214, 0.97) 100%),
+        linear-gradient(135deg, rgba(214, 40, 40, 0.14) 0%, rgba(17, 17, 17, 0.08) 100%);
 }
 
 .product-card:hover {
@@ -222,6 +280,11 @@ body {
     .shop-products {
         grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
         gap: 14px;
+    }
+
+    .shop-category-btn {
+        padding: 12px 22px 11px;
+        font-size: 1rem;
     }
 
     .product-card {

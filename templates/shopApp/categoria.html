@@ -13,13 +13,13 @@
     <!-- Barra gris con el nombre de la categoría actual. -->
     <div class="shop-subtitle">{{ titulo }}</div>
 
-    <div class="shop-products">
+    <div class="shop-products shop-products--{{ slug }}">
             <!-- Recorre la lista "productos" definida en
                  CATEGORIAS[nombre]["productos"] dentro de shopApp/views.py. -->
         {% for producto in productos %}
-            <div class="product-card">
-                    <img class="product-image" src="{% static producto.imagen %}" alt="{{ producto.nombre }}">
-                    <div class="product-name">{{ producto.nombre }}</div>
+            <div class="product-card product-card--{{ slug }}">
+                <img class="product-image" src="{% static producto.imagen %}" alt="{{ producto.nombre }}">
+                <div class="product-name">{{ producto.nombre }}</div>
             </div>
         {% endfor %}
     </div>
