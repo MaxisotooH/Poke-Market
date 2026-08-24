@@ -1,6 +1,6 @@
 <!-- categoria.html: página de detalle de una categoría (ruta /<nombre>/),
      renderizada por la vista shopApp.views.categoria. Lista los productos
-     de esa categoría y ofrece un botón para volver al home de la tienda. -->
+     de esa categoría; cada tarjeta enlaza al detalle del producto. -->
 
 {% extends "shopApp/shop_base.html" %}
 {% load static %}
@@ -14,13 +14,17 @@
     <div class="shop-subtitle">{{ titulo }}</div>
 
     <div class="shop-products shop-products--{{ slug }}">
-            <!-- Recorre la lista "productos" definida en
-                 CATEGORIAS[nombre]["productos"] dentro de shopApp/views.py. -->
-        {% for producto in productos %}
-            <div class="product-card product-card--{{ slug }}">
+            <!-- "productos" es una lista de pares (slug_producto, datos_producto)
+                 armada en la vista categoria() a partir del diccionario
+                 CATEGORIAS[nombre]["productos"] en shopApp/views.py. -->
+        {% for producto_slug, producto in productos %}
+            <!-- Cada tarjeta es un link a la vista detalle_producto, usando
+                 el name="shop_detalle" definido en shopApp/urls.py y pasando
+                 la categoría actual (slug) y el slug del producto. -->
+            <a href="{% url 'shop_detalle' slug producto_slug %}" class="product-card product-card--{{ slug }}">
                 <img class="product-image" src="{% static producto.imagen %}" alt="{{ producto.nombre }}">
                 <div class="product-name">{{ producto.nombre }}</div>
-            </div>
+            </a>
         {% endfor %}
     </div>
 

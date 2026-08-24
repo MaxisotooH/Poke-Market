@@ -1,0 +1,31 @@
+<!-- detalle.html: página de detalle de un producto individual
+     (ruta /<categoria>/<producto>/), renderizada por
+     shopApp.views.detalle_producto. Muestra imagen, nombre, descripción
+     y precio, más un botón para volver a la categoría. -->
+
+{% extends "shopApp/shop_base.html" %}
+{% load static %}
+
+{% block title %}{{ nombre }} - POKE MARKET{% endblock %}
+
+{% block content %}
+    <!-- Barra gris con el nombre de la categoría a la que pertenece el producto. -->
+    <div class="shop-subtitle">{{ categoria_titulo }}</div>
+
+    <div class="product-detail">
+        <img class="product-detail-image" src="{% static imagen %}" alt="{{ nombre }}">
+
+        <div class="product-detail-info">
+            <h2 class="product-detail-name">{{ nombre }}</h2>
+            <!-- descripcion y precio vienen del diccionario de producto
+                 definido en CATEGORIAS dentro de shopApp/views.py. -->
+            <p class="product-detail-description">{{ descripcion }}</p>
+            <p class="product-detail-price">${{ precio }}</p>
+        </div>
+    </div>
+
+    <div class="shop-back">
+        <!-- Vuelve a la categoría del producto (no al home general). -->
+        <a href="{% url 'shop_categoria' categoria_slug %}" class="btn shop-back-btn">VOLVER</a>
+    </div>
+{% endblock %}

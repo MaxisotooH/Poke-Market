@@ -153,6 +153,8 @@ body {
     min-height: 240px;
     position: relative;
     overflow: hidden;
+    text-decoration: none;      /* product-card es un <a>: quita el subrayado por defecto. */
+    cursor: pointer;
 }
 
 .product-card::before {
@@ -220,6 +222,7 @@ body {
 }
 
 .product-card:hover {
+    color: #111;                /* Evita que el navegador pinte el link visitado de morado/azul. */
     transform: translateY(-4px);
     box-shadow:
         0 14px 0 rgba(0, 0, 0, 0.18),
@@ -303,6 +306,62 @@ body {
     background: linear-gradient(180deg, #5b3f8a 0%, #3d2c5f 100%);
 }
 
+/* ---------- Detalle de producto (detalle.html) ---------- */
+
+.product-detail {
+    max-width: 900px;
+    margin: 28px auto;
+    padding: 0 30px;
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.product-detail-image {
+    flex: 1 1 260px;
+    max-width: 320px;
+    background: linear-gradient(180deg, #fff 0%, #f3ead3 100%);
+    border: 2px solid #111;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow:
+        0 10px 0 rgba(0, 0, 0, 0.18),
+        0 18px 28px rgba(0, 0, 0, 0.12);
+}
+
+.product-detail-info {
+    flex: 1 1 320px;
+}
+
+.product-detail-name {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 2rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #111;
+    margin: 0 0 14px;
+}
+
+.product-detail-description {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: #222;
+    margin: 0 0 18px;
+}
+
+.product-detail-price {
+    display: inline-block;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 1.6rem;
+    color: #fff;
+    background: linear-gradient(180deg, #d82929 0%, #9e1111 100%);
+    border: 3px solid #111;
+    border-radius: 14px;
+    padding: 8px 22px 6px;
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.25);
+}
+
 @media (max-width: 768px) {
     .shop-header {
         padding: 14px 18px;
@@ -335,5 +394,14 @@ body {
 
     .product-image {
         height: 130px;
+    }
+
+    .product-detail {
+        padding: 0 16px;
+        gap: 20px;
+    }
+
+    .product-detail-name {
+        font-size: 1.6rem;
     }
 }
