@@ -10,17 +10,15 @@
 
     <div class="profile-card">
         <ul class="profile-list">
-            <!-- request.user está disponible en todos los templates gracias
-                 al context processor django.template.context_processors.auth
-                 (ver TEMPLATES en settings.py). Cada dato se separa en una
-                 etiqueta sutil (profile-label) y el valor destacado
-                 (profile-value). -->
-            <li><span class="profile-label">Usuario</span><span class="profile-value">{{ request.user.username }}</span></li>
-            <li><span class="profile-label">Email</span><span class="profile-value">{{ request.user.email }}</span></li>
-            <!-- perfil es el objeto Perfil pasado desde la vista perfil(). -->
-            <li><span class="profile-label">Apodo de entrenador</span><span class="profile-value">{{ perfil.apodo_entrenador|default:"—" }}</span></li>
-            <li><span class="profile-label">Región favorita</span><span class="profile-value">{{ perfil.region_favorita|default:"—" }}</span></li>
-            <li><span class="profile-label">Miembro desde</span><span class="profile-value">{{ request.user.date_joined|date:"d/m/Y" }}</span></li>
+            <!-- datos_usuario es el diccionario armado en la vista perfil()
+                 (usuarios/views.py) a partir de request.user y el Perfil
+                 del entrenador. Cada dato se separa en una etiqueta sutil
+                 (profile-label) y el valor destacado (profile-value). -->
+            <li><span class="profile-label">Usuario</span><span class="profile-value">{{ datos_usuario.usuario }}</span></li>
+            <li><span class="profile-label">Email</span><span class="profile-value">{{ datos_usuario.email }}</span></li>
+            <li><span class="profile-label">Apodo de entrenador</span><span class="profile-value">{{ datos_usuario.apodo_entrenador }}</span></li>
+            <li><span class="profile-label">Región favorita</span><span class="profile-value">{{ datos_usuario.region_favorita }}</span></li>
+            <li><span class="profile-label">Miembro desde</span><span class="profile-value">{{ datos_usuario.miembro_desde|date:"d/m/Y" }}</span></li>
         </ul>
 
         <!-- LogoutView de Django exige POST (no un simple link) por seguridad.

@@ -41,4 +41,18 @@ def perfil(request):
     # get_or_create evita un error si un usuario antiguo (creado antes de
     # que existiera el modelo Perfil) todavía no tiene uno asociado.
     perfil_usuario, _ = Perfil.objects.get_or_create(user=request.user)
-    return render(request, "usuarios/perfil.html", {"perfil": perfil_usuario})
+
+    # El login/registro sigue manejado por el sistema de autenticación de
+    # Django (User + contraseña hasheada + sesión), que es lo seguro y
+    # estándar para manejar credenciales. Pero para MOSTRAR los datos en
+    # la interfaz, los organizamos en un diccionario de Python -igual que
+    # los productos en shopApp/views.py- en vez de pasarle los objetos de
+    # modelo directamente al template.
+    datos_usuario = {
+        "usuario": request.user.username,
+        "email": request.user.email,
+        "apodo_entrenador": perfil_usuario.apodo_entrenador or "—",
+        "region_favorita": perfil_usuario.region_favorita or "—",
+        "miembro_desde": request.user.date_joined,
+    }
+    return render(request, "usuarios/perfil.html", {"datos_usuario": datos_usuario})
