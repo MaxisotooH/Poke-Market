@@ -12,9 +12,11 @@
        {% for slug, data in categorias %}
             <!-- La etiqueta url genera /<slug>/ usando el
                  name="shop_categoria" definido en shopApp/urls.py, pasándole
-                 "slug" como parámetro de la URL.
-                 data.color inyecta una clase personalizada de color. -->
-            <a href="{% url 'shop_categoria' slug %}" class="btn shop-category-btn {{ data.color }}">{{ data.titulo }}</a>
+                 "slug" como parámetro de la URL. Todos los botones comparten
+                 la clase category-btn: mismo ancho/alto (CSS Grid en
+                 .shop-categories) y mismo estilo, con el rojo de acento
+                 solo al pasar el mouse/enfocar. -->
+            <a href="{% url 'shop_categoria' slug %}" class="category-btn">{{ data.titulo }}</a>
         {% endfor %}
     </div>
 {% endblock %}

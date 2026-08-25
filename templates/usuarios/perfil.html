@@ -12,23 +12,23 @@
         <ul class="profile-list">
             <!-- request.user está disponible en todos los templates gracias
                  al context processor django.template.context_processors.auth
-                 (ver TEMPLATES en settings.py). -->
-            <li><strong>Usuario:</strong> {{ request.user.username }}</li>
-            <li><strong>Email:</strong> {{ request.user.email }}</li>
+                 (ver TEMPLATES en settings.py). Cada dato se separa en una
+                 etiqueta sutil (profile-label) y el valor destacado
+                 (profile-value). -->
+            <li><span class="profile-label">Usuario</span><span class="profile-value">{{ request.user.username }}</span></li>
+            <li><span class="profile-label">Email</span><span class="profile-value">{{ request.user.email }}</span></li>
             <!-- perfil es el objeto Perfil pasado desde la vista perfil(). -->
-            <li><strong>Apodo de entrenador:</strong> {{ perfil.apodo_entrenador|default:"—" }}</li>
-            <li><strong>Región favorita:</strong> {{ perfil.region_favorita|default:"—" }}</li>
-            <li><strong>Miembro desde:</strong> {{ request.user.date_joined|date:"d/m/Y" }}</li>
+            <li><span class="profile-label">Apodo de entrenador</span><span class="profile-value">{{ perfil.apodo_entrenador|default:"—" }}</span></li>
+            <li><span class="profile-label">Región favorita</span><span class="profile-value">{{ perfil.region_favorita|default:"—" }}</span></li>
+            <li><span class="profile-label">Miembro desde</span><span class="profile-value">{{ request.user.date_joined|date:"d/m/Y" }}</span></li>
         </ul>
 
-        <!-- LogoutView de Django exige POST (no un simple link) por seguridad. -->
+        <!-- LogoutView de Django exige POST (no un simple link) por seguridad.
+             El botón "Ir a la tienda" que antes flotaba aquí se elimina:
+             la navegación a Productos ya vive en la barra superior (shop-nav). -->
         <form method="post" action="{% url 'usuarios_logout' %}">
             {% csrf_token %}
-            <button type="submit" class="btn shop-back-btn">CERRAR SESIÓN</button>
+            <button type="submit" class="btn-secundario btn-sm">Cerrar sesión</button>
         </form>
-    </div>
-
-    <div class="shop-back">
-        <a href="{% url 'shop_home' %}" class="btn shop-back-btn">IR A LA TIENDA</a>
     </div>
 {% endblock %}

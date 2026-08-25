@@ -10,10 +10,10 @@
 {% block title %}{{ titulo }} - POKE MARKET{% endblock %}
 
 {% block content %}
-    <!-- Barra gris con el nombre de la categoría actual. -->
+    <!-- Barra con el nombre de la categoría actual. -->
     <div class="shop-subtitle">{{ titulo }}</div>
 
-    <div class="shop-products shop-products--{{ slug }}">
+    <div class="shop-products">
             <!-- "productos" es una lista de pares (slug_producto, datos_producto)
                  armada en la vista categoria() a partir del diccionario
                  CATEGORIAS[nombre]["productos"] en shopApp/views.py. -->
@@ -21,7 +21,7 @@
             <!-- Cada tarjeta es un link a la vista detalle_producto, usando
                  el name="shop_detalle" definido en shopApp/urls.py y pasando
                  la categoría actual (slug) y el slug del producto. -->
-            <a href="{% url 'shop_detalle' slug producto_slug %}" class="product-card product-card--{{ slug }}">
+            <a href="{% url 'shop_detalle' slug producto_slug %}" class="product-card">
                 <img class="product-image" src="{% static producto.imagen %}" alt="{{ producto.nombre }}">
                 <div class="product-name">{{ producto.nombre }}</div>
             </a>
@@ -30,6 +30,6 @@
 
     <div class="shop-back">
         <!-- Vuelve al home de la tienda usando el name="shop_home" de shopApp/urls.py. -->
-        <a href="{% url 'shop_home' %}" class="btn shop-back-btn">VOLVER</a>
+        <a href="{% url 'shop_home' %}" class="btn-secundario btn-sm">Volver</a>
     </div>
 {% endblock %}

@@ -9,9 +9,11 @@
 {% block title %}{{ nombre }} - POKE MARKET{% endblock %}
 
 {% block content %}
-    <!-- Barra gris con el nombre de la categoría a la que pertenece el producto. -->
+    <!-- Barra con el nombre de la categoría a la que pertenece el producto. -->
     <div class="shop-subtitle">{{ categoria_titulo }}</div>
 
+    <!-- Layout de 2 columnas (flexbox): imagen a la izquierda,
+         información y acciones a la derecha. -->
     <div class="product-detail">
         <img class="product-detail-image" src="{% static imagen %}" alt="{{ nombre }}">
 
@@ -20,12 +22,31 @@
             <!-- descripcion y precio vienen del diccionario de producto
                  definido en CATEGORIAS dentro de shopApp/views.py. -->
             <p class="product-detail-description">{{ descripcion }}</p>
+            <!-- El precio ya no va dentro de un botón: es texto grande y destacado. -->
             <p class="product-detail-price">${{ precio }}</p>
+
+            <div class="product-detail-actions">
+                <!-- Botón visual de "Añadir al carrito": el proyecto no
+                     implementa un carrito de compras (fuera del alcance
+                     del proyecto), pero sigue el mismo sistema de botones
+                     y da una confirmación simple al hacer clic. -->
+                <button type="button" class="btn-primario" id="btn-agregar-carrito">Añadir al carrito</button>
+                <a href="{% url 'shop_categoria' categoria_slug %}" class="btn-secundario btn-sm">Volver</a>
+            </div>
         </div>
     </div>
 
-    <div class="shop-back">
-        <!-- Vuelve a la categoría del producto (no al home general). -->
-        <a href="{% url 'shop_categoria' categoria_slug %}" class="btn shop-back-btn">VOLVER</a>
-    </div>
+    <script>
+        // Feedback visual simple: cambia el texto del botón brevemente al
+        // hacer clic. No hay carrito de compras real detrás.
+        document.getElementById('btn-agregar-carrito').addEventListener('click', function () {
+            var textoOriginal = this.textContent;
+            this.textContent = '¡Agregado!';
+            this.disabled = true;
+            setTimeout(() => {
+                this.textContent = textoOriginal;
+                this.disabled = false;
+            }, 1500);
+        });
+    </script>
 {% endblock %}
