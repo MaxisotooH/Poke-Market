@@ -15,8 +15,13 @@
                  "slug" como parámetro de la URL. Todos los botones comparten
                  la clase category-btn: mismo ancho/alto (CSS Grid en
                  .shop-categories) y mismo estilo, con el rojo de acento
-                 solo al pasar el mouse/enfocar. -->
-            <a href="{% url 'shop_categoria' slug %}" class="category-btn">{{ data.titulo }}</a>
+                 solo al pasar el mouse/enfocar. data.icono es el emoji que
+                 identifica visualmente la categoría (ver CATEGORIAS en
+                 shopApp/views.py). -->
+            <a href="{% url 'shop_categoria' slug %}" class="category-btn">
+                <span class="category-btn-icon" aria-hidden="true">{{ data.icono }}</span>
+                {{ data.titulo }}
+            </a>
         {% endfor %}
     </div>
 {% endblock %}

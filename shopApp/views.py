@@ -14,6 +14,7 @@ from django.shortcuts import render
 CATEGORIAS = {
     "inciensos": {
         "titulo": "Inciensos",
+        "icono": "🕯️",                  # Emoji que identifica la categoría en el botón.
         "color": "pokeball-red",       # Rojo estilo Poké Ball.
         "productos": {
             "incienso-suerte": {
@@ -38,6 +39,7 @@ CATEGORIAS = {
     },
     "pociones": {
         "titulo": "Pociones",
+        "icono": "🧪",
         "color": "pokeball-black",     # Negro estilo Poké Ball.
         "productos": {
             "pocion": {
@@ -68,6 +70,7 @@ CATEGORIAS = {
     },
     "revivir": {
         "titulo": "Revivir",
+        "icono": "✨",
         "color": "pokeball-red",       # Rojo estilo Poké Ball.
         "productos": {
             "revivir": {
@@ -86,6 +89,7 @@ CATEGORIAS = {
     },
     "bayas": {
         "titulo": "Bayas",
+        "icono": "🌿",
         "color": "pokeball-black",     # Negro estilo Poké Ball.
         "productos": {
             "baya-aranja": {
@@ -110,6 +114,7 @@ CATEGORIAS = {
     },
     "monedas": {
         "titulo": "Monedas",
+        "icono": "🪙",
         "color": "pokeball-red",       # Rojo estilo Poké Ball.
         "productos": {
             "moneda-pokemon-go": {
@@ -152,6 +157,7 @@ CATEGORIAS = {
     },
     "huevos_suerte": {
         "titulo": "Huevos suerte",
+        "icono": "🥚",
         "color": "pokeball-black",     # Negro estilo Poké Ball.
         "productos": {
             "huevo-suerte": {
@@ -176,6 +182,7 @@ CATEGORIAS = {
     },
     "pokeballs": {
         "titulo": "Pokeballs",
+        "icono": "⚪",
         "color": "pokeball-red",       # Rojo estilo Poké Ball.
         "productos": {
             "poke-ball": {

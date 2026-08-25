@@ -34,7 +34,15 @@
 
 body {
     margin: 0;
-    background: var(--color-fondo);
+    /* Patrón de fondo muy sutil (~3% de opacidad): formas geométricas
+       genéricas (una "poké ball" simple, un rayo, una gota) dibujadas a
+       mano en SVG -no son artwork oficial de Pokémon-, tileadas en un
+       mosaico amplio para que se noten poco sobre el color de fondo. */
+    background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cg fill='none' stroke='%232c3e50' stroke-width='2.5' opacity='0.03'%3E%3Ccircle cx='50' cy='50' r='20'/%3E%3Cline x1='30' y1='50' x2='70' y2='50'/%3E%3Ccircle cx='50' cy='50' r='5' fill='%232c3e50'/%3E%3C/g%3E%3Cg fill='%232c3e50' opacity='0.03'%3E%3Cpath d='M230 40 L214 72 L228 72 L220 106 L250 66 L234 66 Z'/%3E%3Cpath d='M190 200 C202 218 212 230 190 242 C168 230 178 218 190 200 Z'/%3E%3C/g%3E%3Cg fill='none' stroke='%232c3e50' stroke-width='2.5' opacity='0.03'%3E%3Ccircle cx='90' cy='250' r='16'/%3E%3Cline x1='74' y1='250' x2='106' y2='250'/%3E%3Ccircle cx='90' cy='250' r='4' fill='%232c3e50'/%3E%3C/g%3E%3C/svg%3E"),
+        var(--color-fondo);
+    background-repeat: repeat;
+    background-attachment: fixed;
     color: var(--color-texto);
     font-family: var(--fuente-base);
     font-size: 16px;
@@ -226,6 +234,49 @@ p {
 }
 
 /* ============================================
+   Banner principal (index.html), justo debajo del nav.
+   No usamos una foto real (no hay artwork oficial de Pokémon
+   disponible en el proyecto): en su lugar, un fondo generado con
+   gradientes + el mismo patrón de formas genéricas en grande, y un
+   filtro oscuro suave encima para que el texto blanco sea legible.
+   ============================================ */
+.hero-banner {
+    position: relative;
+    padding: 64px 30px;
+    text-align: center;
+    color: #ffffff;
+    background:
+        /* Filtro oscuro suave sobre el "fondo temático". */
+        linear-gradient(135deg, rgba(17, 20, 26, 0.72) 0%, rgba(17, 20, 26, 0.58) 100%),
+        /* Patrón decorativo a mayor escala (formas genéricas). */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='3' opacity='0.10'%3E%3Ccircle cx='40' cy='40' r='20'/%3E%3Cline x1='20' y1='40' x2='60' y2='40'/%3E%3Ccircle cx='40' cy='40' r='5' fill='%23ffffff'/%3E%3C/g%3E%3Cg fill='%23ffffff' opacity='0.10'%3E%3Cpath d='M182 30 L166 62 L180 62 L172 96 L202 56 L186 56 Z'/%3E%3Cpath d='M158 150 C170 168 180 180 158 192 C136 180 146 168 158 150 Z'/%3E%3Cpath d='M196 210 C196 186 220 174 232 174 C232 198 220 210 196 210 Z'/%3E%3C/g%3E%3C/svg%3E"),
+        /* "Foto" temática: degradado cálido/frío evocando el logo de la tienda. */
+        radial-gradient(circle at 20% 25%, rgba(214, 40, 40, 0.65), transparent 45%),
+        radial-gradient(circle at 82% 70%, rgba(30, 90, 180, 0.5), transparent 50%),
+        linear-gradient(160deg, #1c1f26 0%, #2c3e50 60%, #11151b 100%);
+    background-repeat: repeat, repeat, no-repeat, no-repeat, no-repeat;
+}
+
+.hero-banner-content {
+    position: relative;
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.hero-banner-title {
+    color: #ffffff;
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin: 0 0 10px;
+}
+
+.hero-banner-subtitle {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 1.1rem;
+    margin: 0 0 26px;
+}
+
+/* ============================================
    Barra de categorías (home.html) — CSS Grid,
    todos los botones con el mismo ancho y alto.
    ============================================ */
@@ -242,14 +293,18 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 8px;
     height: 54px;
-    padding: 0 16px;
+    padding: 0 14px;
     text-align: center;
 
     font-family: var(--fuente-base);
     font-weight: 600;
     font-size: 0.92rem;
     text-decoration: none;
+    white-space: nowrap;    /* evita que títulos de 2 palabras rompan la altura uniforme */
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     border: none;
     border-radius: var(--radio-sm);
@@ -258,6 +313,12 @@ p {
     color: #ffffff;
     box-shadow: var(--sombra-sm);
     transition: background-color 0.15s ease, transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+/* Ícono (emoji) que identifica cada categoría a simple vista. */
+.category-btn-icon {
+    font-size: 1.15rem;
+    line-height: 1;
 }
 
 /* Estado "activo": rojo, al pasar el mouse o enfocar con teclado. */
@@ -508,31 +569,17 @@ p {
     color: var(--color-texto);
 }
 
-/* ============================================
-   Inicio (index.html)
-   ============================================ */
-.index-hero {
-    max-width: 720px;
-    margin: 40px auto;
-    padding: 0 48px;
-}
-
-.index-hero-title {
-    font-size: 1.7rem;
-}
-
-.index-hero-text {
-    font-size: 1.15rem;
-    line-height: 1.7;
-    color: var(--color-texto-suave);
-    margin: 0 0 26px;
-    max-width: 600px;
-}
-
-.index-hero-links {
+.hero-banner-links {
     display: flex;
     gap: 14px;
+    justify-content: center;
     flex-wrap: wrap;
+}
+
+/* El CTA principal del banner es un poco más grande que un botón normal. */
+.hero-banner .btn-primario {
+    padding: 12px 26px;
+    font-size: 0.95rem;
 }
 
 @media (max-width: 768px) {
@@ -549,8 +596,16 @@ p {
         gap: 18px;
     }
 
-    .index-hero {
-        padding: 0 20px;
+    .hero-banner {
+        padding: 44px 20px;
+    }
+
+    .hero-banner-title {
+        font-size: 1.6rem;
+    }
+
+    .hero-banner-subtitle {
+        font-size: 1rem;
     }
 
     .shop-categories,
