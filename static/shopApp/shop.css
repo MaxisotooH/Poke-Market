@@ -277,37 +277,44 @@ p {
 }
 
 /* ============================================
-   Barra de categorías (home.html) — CSS Grid,
-   todos los botones con el mismo ancho y alto.
+   Barra de categorías (home.html) — Flexbox con wrap:
+   como solo hay 7 categorías fijas, tarjetas grandes +
+   centrado horizontal y vertical aprovechan el espacio de
+   la página en vez de una fila angosta pegada arriba.
+   Flexbox (en vez de Grid) además centra automáticamente
+   la última fila aunque quede incompleta (7 = 4 + 3).
    ============================================ */
 .shop-categories {
-    padding: 28px 30px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 14px;
-    max-width: 1200px;
+    padding: 60px 30px 80px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: stretch;
+    gap: 24px;
+    max-width: 1000px;
+    min-height: calc(100vh - 260px); /* usa el alto disponible bajo header/nav/subtítulo */
     margin: 0 auto;
 }
 
 .category-btn {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    height: 54px;
-    padding: 0 14px;
+    gap: 10px;
+    width: 190px;
+    height: 150px;
+    padding: 0 16px;
     text-align: center;
 
     font-family: var(--fuente-base);
     font-weight: 600;
-    font-size: 0.92rem;
+    font-size: 1rem;
     text-decoration: none;
-    white-space: nowrap;    /* evita que títulos de 2 palabras rompan la altura uniforme */
-    overflow: hidden;
-    text-overflow: ellipsis;
 
     border: none;
-    border-radius: var(--radio-sm);
+    border-radius: var(--radio-md);
     /* Estado por defecto ("inactivo"): gris oscuro. */
     background-color: var(--color-texto);
     color: #ffffff;
@@ -317,8 +324,15 @@ p {
 
 /* Ícono (emoji) que identifica cada categoría a simple vista. */
 .category-btn-icon {
-    font-size: 1.15rem;
+    font-size: 2.4rem;
     line-height: 1;
+}
+
+.category-btn-label {
+    white-space: nowrap;    /* evita que títulos de 2 palabras rompan la altura uniforme */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
 }
 
 /* Estado "activo": rojo, al pasar el mouse o enfocar con teclado. */
@@ -326,7 +340,7 @@ p {
 .category-btn:focus-visible {
     background-color: var(--color-acento);
     color: #ffffff;
-    transform: translateY(-2px);
+    transform: translateY(-4px);
     box-shadow: var(--sombra-md);
 }
 
@@ -613,6 +627,22 @@ p {
     .shop-back {
         padding-left: 18px;
         padding-right: 18px;
+    }
+
+    .shop-categories {
+        padding-top: 30px;
+        padding-bottom: 40px;
+        gap: 16px;
+        min-height: 0;    /* en mobile no forzamos alto de viewport completo */
+    }
+
+    .category-btn {
+        width: 140px;
+        height: 120px;
+    }
+
+    .category-btn-icon {
+        font-size: 1.9rem;
     }
 
     .shop-products {
